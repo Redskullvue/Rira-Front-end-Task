@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainView from "../views/MainView.vue";
+import DoneTodosView from "../views/DoneTodosView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: MainView,
+  },
+  {
+    path: "/done",
+    name: "DoneTodos",
+    component: DoneTodosView,
   },
 ];
 
