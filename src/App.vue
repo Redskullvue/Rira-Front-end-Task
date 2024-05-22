@@ -26,9 +26,14 @@ function updateTodos(id) {
   todosList.value[index].isDone = !todosList.value[index].isDone;
 }
 
+function deleteTodo(id) {
+  let index = todosList.value.findIndex((todo) => todo.id === id);
+  todosList.value.splice(index, 1);
+}
 // Did this instead of prop drilling
 provide("todosList", {
   todosList,
   updateTodos,
+  deleteTodo,
 });
 </script>
