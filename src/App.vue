@@ -12,4 +12,23 @@
 
 <script setup>
 import YHeader from "@/components/Header.vue";
+import { ref, provide } from "vue";
+
+// Initialized Our main Data here so it would be easier to do provide/inject
+const todosList = ref([
+  { id: 0, title: "Go To Dentist", isDone: false },
+  { id: 1, title: "Make Some food", isDone: false },
+]);
+
+// This function will fire when an item gets clicked / i passed it with provide function
+function updateTodos(id) {
+  let index = todosList.value.findIndex((todo) => todo.id === id);
+  todosList.value[index].isDone = !todosList.value[index].isDone;
+}
+
+// Did this instead of prop drilling
+provide("todosList", {
+  todosList,
+  updateTodos,
+});
 </script>
