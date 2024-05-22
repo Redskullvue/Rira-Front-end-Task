@@ -23,11 +23,20 @@ const todosList = ref([
   { id: 1, title: "Make Some food", isDone: false },
 ]);
 
+const doneTodos = ref([]);
+
 // This function will fire when an item gets clicked / i passed it with provide function
 function updateTodos(id) {
   let index = todosList.value.findIndex((todo) => todo.id === id);
-  todosList.value[index].isDone = !todosList.value[index].isDone;
-  toast.success("Item Has Been Added To Done List");
+  let item = todosList.value[index];
+
+  if (item.isDone == false) {
+    item.isDone = true;
+    toast.success("Item Has Been Added To Done List");
+    doneTodos.value.push(item);
+  } else {
+    toast.error("You've Already Done this task");
+  }
   return;
 }
 
@@ -37,10 +46,18 @@ function deleteTodo(id) {
   toast.success("Item Deleted Successfully");
   return;
 }
+function deleteDoneTodo(id) {
+  let index = doneTodos.value.findIndex((todo) => todo.id === id);
+  doneTodos.value.splice(index, 1);
+  toast.success("Item Deleted Successfully");
+  return;
+}
 // Did this instead of prop drilling
 provide("todosList", {
   todosList,
+  doneTodos,
   updateTodos,
   deleteTodo,
+  deleteDoneTodo,
 });
 </script>
