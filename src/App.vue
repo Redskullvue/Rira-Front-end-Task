@@ -13,6 +13,9 @@
 <script setup>
 import YHeader from "@/components/Header.vue";
 import { ref, provide } from "vue";
+// This Package is being used to display cool alerts
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 // Initialized Our main Data here so it would be easier to do provide/inject
 const todosList = ref([
@@ -24,11 +27,15 @@ const todosList = ref([
 function updateTodos(id) {
   let index = todosList.value.findIndex((todo) => todo.id === id);
   todosList.value[index].isDone = !todosList.value[index].isDone;
+  toast.success("Item Has Been Added To Done List");
+  return;
 }
 
 function deleteTodo(id) {
   let index = todosList.value.findIndex((todo) => todo.id === id);
   todosList.value.splice(index, 1);
+  toast.success("Item Deleted Successfully");
+  return;
 }
 // Did this instead of prop drilling
 provide("todosList", {
