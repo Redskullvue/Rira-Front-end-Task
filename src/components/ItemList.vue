@@ -1,5 +1,7 @@
 <template>
-  <ul class="w-full h-full overflow-y-scroll overflow-x-hidden p-4 select-none">
+  <div
+    class="w-full h-full overflow-y-scroll overflow-x-hidden p-4 select-none"
+  >
     <!-- Simple For Loop To Show list items -->
     <div v-if="!showDone">
       <h4
@@ -8,7 +10,7 @@
       >
         Start Writing Some tasks
       </h4>
-      <li
+      <div
         class="w-full p-3 text-gray-600 text-lg my-2 flex items-center justify-between cursor-pointer"
         v-for="(todo, index) in todosList"
         :key="index"
@@ -23,10 +25,14 @@
           {{ todo.title }}
         </div>
 
-        <button @click="deleteTodo(todo.id)" class="text-red-500">
-          <i-trash />
+        <button
+          @click="deleteTodo(todo.id)"
+          class="text-red-500"
+          aria-label="Delete"
+        >
+          <i><i-trash /></i>
         </button>
-      </li>
+      </div>
     </div>
     <div v-if="showDone">
       <h4
@@ -35,7 +41,7 @@
       >
         Start Doing Some tasks
       </h4>
-      <li
+      <div
         class="w-full p-3 text-gray-600 text-lg my-2 flex items-center justify-between cursor-pointer"
         v-for="(todo, index) in doneTodos"
         :key="index"
@@ -50,12 +56,16 @@
           {{ todo.title }}
         </div>
 
-        <button @click="deleteDoneTodo(todo.id)" class="text-red-500">
+        <button
+          @click="deleteDoneTodo(todo.id)"
+          class="text-red-500"
+          aria-label="Delete"
+        >
           <i-trash />
         </button>
-      </li>
+      </div>
     </div>
-  </ul>
+  </div>
 </template>
 
 <script setup>
