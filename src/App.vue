@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+import "transition-style";
 import YHeader from "@/components/Header.vue";
 import { ref, provide } from "vue";
 // This Package is being used to display cool alerts

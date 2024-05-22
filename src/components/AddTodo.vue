@@ -4,6 +4,9 @@
   >
     <div
       class="md:w-1/3 w-full h-1/3 bg-gray-50 rounded-lg shadow-md mt-10 flex items-center justify-center flex-col"
+      id="modal"
+      transition-style="in:square:center"
+      style="animation-duration: 2s"
     >
       <div class="w-full text-end -mt-4">
         <button class="p-2 text-xl text-red-500" @click="closeAddTodo">
@@ -45,7 +48,12 @@ const { addTodo } = inject("todosList");
 const emit = defineEmits(["closeAddTodo", "NewTodo"]);
 
 const closeAddTodo = () => {
-  emit("closeAddTodo", false);
+  document
+    .getElementById("modal")
+    .setAttribute("transition-style", "out:square:center");
+  setTimeout(() => {
+    emit("closeAddTodo", false);
+  }, 1500);
 };
 const todo = {
   title: "",
