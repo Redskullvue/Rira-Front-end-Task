@@ -52,6 +52,10 @@ function deleteDoneTodo(id) {
   toast.success("Item Deleted Successfully");
   return;
 }
+
+function addTodo(todo) {
+  todosList.value.push(todo);
+}
 // Did this instead of prop drilling
 provide("todosList", {
   todosList,
@@ -59,5 +63,6 @@ provide("todosList", {
   updateTodos,
   deleteTodo,
   deleteDoneTodo,
+  addTodo,
 });
 </script>
