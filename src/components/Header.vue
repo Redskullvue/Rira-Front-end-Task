@@ -3,6 +3,7 @@
     class="w-full md:w-3/4 lg:w-1/4 h-20 flex items-center justify-center bg-gray-100 rounded-t-lg -mb-1"
   >
     <router-link
+      aria-label="List"
       class="w-1/2 flex items-center justify-center h-full transition-all duration-300 rounded-t-lg"
       to="/"
     >
@@ -10,6 +11,7 @@
     </router-link>
 
     <router-link
+      aria-label="DoneList"
       class="w-1/2 flex items-center justify-center h-full transition-all duration-300 rounded-t-lg"
       to="/done"
     >
