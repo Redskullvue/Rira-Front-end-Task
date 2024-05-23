@@ -34,6 +34,7 @@ function updateTodos(id) {
   if (item.isDone == false) {
     item.isDone = true;
     toast.success("Item Has Been Added To Done List");
+    todosList.value.splice(index, 1);
     doneTodos.value.push(item);
   } else {
     toast.error("You've Already Done this task");
