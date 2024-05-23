@@ -56,6 +56,7 @@ const closeAddTodo = () => {
   }, 1500);
 };
 const todo = {
+  id: randomIdGenrator(),
   title: "",
   isDone: false,
 };
@@ -63,6 +64,11 @@ const todo = {
 function sendTodo() {
   addTodo(todo);
   closeAddTodo();
+}
+
+function randomIdGenrator() {
+  const id = Math.floor(Math.random() * 100000);
+  return id;
 }
 todo.title = "";
 </script>
