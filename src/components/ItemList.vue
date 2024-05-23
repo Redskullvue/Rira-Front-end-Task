@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="w-full h-full overflow-y-scroll overflow-x-hidden p-4 select-none"
-  >
+  <ul class="w-full h-full overflow-y-scroll overflow-x-hidden p-4 select-none">
     <!-- Simple For Loop To Show list items -->
-    <div v-if="!showDone">
+    <li v-if="!showDone">
       <h4
         class="w-full text-center font-bold text-lg"
         v-if="todosList.length <= 0"
@@ -33,8 +31,8 @@
           <i><i-trash /></i>
         </button>
       </div>
-    </div>
-    <div v-if="showDone">
+    </li>
+    <li v-if="showDone">
       <h4
         class="w-full text-center font-bold text-lg"
         v-if="doneTodos.length <= 0"
@@ -64,8 +62,8 @@
           <i-trash />
         </button>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script setup>
