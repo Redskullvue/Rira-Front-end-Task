@@ -27,15 +27,13 @@ const showAddTodo = ref(false);
 
 <style>
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 1px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f5f5f5;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: purple;
 }
