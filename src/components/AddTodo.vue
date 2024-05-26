@@ -51,9 +51,7 @@ const closeAddTodo = () => {
   document
     .getElementById("modal")
     .setAttribute("transition-style", "out:square:center");
-  setTimeout(() => {
-    emit("closeAddTodo", false);
-  }, 1500);
+  emit("closeAddTodo", false);
 };
 const todo = {
   id: randomIdGenrator(),
